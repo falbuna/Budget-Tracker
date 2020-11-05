@@ -8,22 +8,26 @@ const iconFiles = iconSizes.map(
 
 const FILES_TO_CACHE = [
     "/",
-    "/styles.css",
     "/index.js",
+    "/db.js",
+    "/styles.css",
     "/manifest.webmanifest",
 ].concat(iconFiles);
 
+// Installs
 self.addEventListener("install", function(evt){
+    // Pre-cache all static assets
     evt.waitUntil(
         caches.open(CACHE_NAME).then(cache => {
             console.log("Your files were pre-cached successfully!");
             return cache.addAll(FILES_TO_CACHE);
         })
     );
-
+    // This tells the browser to activate this service worker immediately once it has finished installing
     self.skipWaiting();
 });
 
+// Activate
 self.addEventListener("activate", function(evt){
     evt.waitUntil(
         caches.keys().then(keyList => {
@@ -41,13 +45,16 @@ self.addEventListener("activate", function(evt){
     self.clients.claim();
 });
 
+
+// Fetch
 self.addEventListener("fetch", function(evt){
     const {url} = evt.request;
-    if (url.includes("/all") || url.includes("/find")) {
+    if (url.includes("/api/")) {
         evt.respondWith(
             caches.open(DATA_CACHE_NAME).then(cache => {
                 return fetch(evt.request)
                 .then(response => {
+                    // If the response was good, clone it and store it to the cache.
                     if (response.status === 200){
                         cache.put(evt.request, response.clone());
                     }
