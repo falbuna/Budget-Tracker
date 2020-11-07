@@ -21,15 +21,15 @@ The application uses IndexedDB and Mongo to create the database, Express to hand
 
 When the user first reaches the page, this is what they will see. The user can input a transaction with the amount of the transaction, and either Add or Subtract funds.
 
-![]()
+![Main Budget Tracker page.](https://github.com/falbuna/Budget-Tracker/blob/main/assets/01_budgetTracker.png)
 
 After inputting transactions, the page will update with either the additional or subtraction of funds from the budget. The total on the top of the page will also update.
 
-![]()
+![First Transactions](https://github.com/falbuna/Budget-Tracker/blob/main/assets/02_transactions.png)
 
 When the user goes offline, the page transactions will get saved and updated to the page when their connection is back online.
 
-![]()
+![More Transactions](https://github.com/falbuna/Budget-Tracker/blob/main/assets/03_transactions.png)
 
 ## Questions
 
