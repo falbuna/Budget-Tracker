@@ -6,12 +6,16 @@ The Budget Tracker Application can be found here: [https://shrouded-caverns-9398
 
 ## Introduction
 
+This application allows the user to add transactions to a Budget that will Add or Subtract funds from a transaction list. The application also has offline functionality that will allow the user to enter deposits and expesnes offline, which will be added to the tracker when brought back offline.
+
 ## Table of Contents
 * [Description](#Description)
 * [Usage](#Usage)
 * [Questions](#Questions)
 
 ## Description
+
+
 
 ## Usage
 
